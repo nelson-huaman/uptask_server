@@ -10,7 +10,7 @@ export const corsConfig: CorsOptions = {
       if(process.argv[2] === '--api') {
          whitelist.push(undefined)
       }
-      if(whitelist.includes(origin)) {
+      if(!origin || whitelist.includes(origin)) {
          callback(null, true);
       } else {
          callback(new Error("Error de CORS"));
